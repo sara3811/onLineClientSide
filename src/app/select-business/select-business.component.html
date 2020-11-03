@@ -1,0 +1,14 @@
+
+<ion-item *ngIf="Businesses">
+  <ion-label>בחר עסק</ion-label>
+  <ionic-selectable [(ngModel)]="selectedBusiness" [items]="Businesses" itemValueField="BusinessId"
+      itemTextField= "BusinessName" [canSearch]="true" (onChange)="dataChange($event)">
+  </ionic-selectable>
+</ion-item>
+
+<ion-list *ngIf="selectedBusiness && selectedBusiness.Services.length>1" >
+    <ion-item  *ngFor="let service of selectedBusiness.Services" button (click)="buttonClick(service)">
+      {{service.ServiceName}}
+    </ion-item>
+</ion-list>
+

@@ -1,0 +1,6 @@
+  <ion-list>
+    <ion-item *ngFor="let turn of myTurns">
+      <ion-label>{{turn.BusinessName}}, {{turn.EstimatedHour}}</ion-label>
+      <ion-button (click)="cancelTurn(turn.TurnId)">ביטול</ion-button>
+    </ion-item>
+  </ion-list>

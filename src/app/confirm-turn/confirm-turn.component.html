@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      אשר את התור הרצוי
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item *ngIf="turn||turns">
+    <p> בחר זמן להתראה מראש: </p>
+    <ion-input type="number" [(ngModel)]="preAlert"></ion-input>
+    <p>דקות </p>
+  </ion-item>
+
+  <ion-list *ngIf="turns">
+    <ion-item *ngFor="let turn of turns">
+      <ion-text>
+        <p>{{turn.BusinessName}}</p>
+        <p>{{turn.EstimatedHour}}</p>
+        <p>{{turn.Address}}</p>
+        <ion-button *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="turn">
+    <ion-text>
+      <p>{{turn.BusinessName}}</p>
+      <p>{{turn.EstimatedHour}}</p>
+      <p>{{turn.Address}}</p>
+      <ion-button *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
+    </ion-text>
+  </ion-item>
+
+</ion-content>

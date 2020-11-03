@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>הרשם</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-item >
+    <ion-label position="floating">שם</ion-label>
+    <ion-input type="text" #userName ></ion-input>
+    
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">מספר טלפון</ion-label>
+    <ion-input type="tel" #userPhone></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="register()"> הצטרף אלינו</ion-button>
+  </ion-item>
+  <strong>{{ message | async | json }}
+  </strong>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>הזמן תור</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--step 1: choose business and service-->
+  <app-select-business [isAdvanceTurn]=1 (outputService)="SetSelectedService($event)"></app-select-business>
+
+  <!--step 2: choose date-->
+  <ion-segment *ngIf="selectedService&&days&&!selectedDay" (ionChange)="segmentChanged($event)">
+    <ion-segment-button *ngFor="let day of days" value={{day}}>
+      <ion-label>{{day|date:'shortDate'}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!--selected day-->
+  <ion-item *ngIf="selectedDay">
+    <ion-row>
+      <ion-col>{{selectedDay}}</ion-col>
+      <ion-col (click)="cancelSelectDay()">בחר יום אחר</ion-col>
+    </ion-row>
+  </ion-item>
+
+  <!--step 3: choose hour-->
+  <ion-grid *ngIf="hours&&!selectedHour">
+    <ion-row class="overflow-x">
+      <ion-col *ngFor="let hour of hours"><button (click)="setHour(hour)"> {{hour}}</button></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--selected hour-->
+  <ion-item *ngIf="selectedHour">
+    <ion-row>
+      <ion-col>{{selectedHour}}</ion-col>
+      <ion-col (click)="cancelSelectHour()">בחר שעה אחרת</ion-col>
+    </ion-row>
+  </ion-item>
+
+  <!--step 4: choose pre-alert-->
+  <ion-item *ngIf="selectedHour">
+    <ion-label>בחר זמן להתראה מראש</ion-label>
+    <ion-input type="number" [(ngModel)]="preAlert"></ion-input>
+  </ion-item>
+
+  <!--step 5: confirm turn-->
+  <ion-button *ngIf="preAlert" (click)="confirmTurn()">אשר תור</ion-button>
+
+</ion-content>
+
+
+<!--todo: לבדוק שמוצעים רק שירותים שיש להם הרשאה לתור מראש-->

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>התהליך הושלם</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-text color="primary">
+    <h1>התור זומן בהצלחה!</h1>
+    <p>קוד אימות:{{verificationCode}}</p>
+    <p routerLink="/tabs/tab1">לחזרה לתפריט ראשי</p>
+  </ion-text>
+
+  <ion-item>
+    <ion-text>
+      <h2>פרטי התור:</h2>
+      <p>{{turn.BusinessName}}</p>
+      <p>{{turn.EstimatedHour}}</p>
+      <p>{{turn.Address}}</p>
+      <p>{{turn.preAlert}}</p>
+    </ion-text>
+  </ion-item>
+  
+</ion-content>

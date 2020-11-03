@@ -1,0 +1,6 @@
+<ion-app>
+ <app-register *ngIf="!token()"></app-register>
+  
+  <ion-router-outlet *ngIf="token()"></ion-router-outlet>
+
+</ion-app>
