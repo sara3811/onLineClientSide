@@ -21,7 +21,11 @@ const routes: Routes = [
   {
     path: 'make-appointment',
     loadChildren: () => import('./make-appointment/make-appointment.module').then(m => m.MakeAppointmentPageModule)
+  },  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
   },
+
 
 
 

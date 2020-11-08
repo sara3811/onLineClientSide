@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+userName=localStorage.getItem("userName");
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

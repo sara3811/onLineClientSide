@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
   myCustomIcon = "../../assets/logo.JPG";
+  userName=localStorage.getItem("userName");
   constructor() {}
 
 }
