@@ -7,8 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { MakeAppointmentPageRoutingModule } from './make-appointment-routing.module';
 
 import { MakeAppointmentPage } from './make-appointment.page';
-//mport { RouterModule } from '@angular/router';
-//import { SelectBusinessComponent } from '../select-business/select-business.component';
+//import { RouterModule } from '@angular/router';
+import { SelectBusinessComponent } from '../select-business/select-business.component';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 
 @NgModule({
@@ -16,8 +17,10 @@ import { MakeAppointmentPage } from './make-appointment.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MakeAppointmentPageRoutingModule
+    MakeAppointmentPageRoutingModule,
+    IonicSelectableModule,
+
   ],
-  declarations: [MakeAppointmentPage]
+  declarations: [MakeAppointmentPage,SelectBusinessComponent]
 })
 export class MakeAppointmentPageModule {}
