@@ -1,0 +1,35 @@
+ion-item{  
+    --background: #f1f0f0;
+    color:#48b5be ;
+   font-family: 'Heebo';
+   font-weight: lighter;
+   font-size: smaller;
+    margin-right: 3%;
+    margin-top: 2%;
+    margin-left:3%;
+  border-right:6px solid;
+ 
+ border-right-color: #067ca5;;
+ 
+--border-bottom:none;
+
+ 
+}
+.end-btn{
+    font-family: 'Heebo';
+    --background: #f1f0f0 ;
+    border:2px solid  #48b5be;
+    --border-color: #48b5be;
+    --border-width:2px;
+     color: #48b5be;
+    border-radius: 5.923mm;
+    --border-radius: 5.923mm;
+
+     width: 70px;
+}
+.time{
+    margin-right: 0 !important;
+    margin-left: 2%;
+    padding-right: 0 !important;
+    color: #067ca5;
+}

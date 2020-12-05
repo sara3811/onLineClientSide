@@ -1,7 +1,44 @@
-ion-item{
-    margin:8%;
+ion-content{
+
+  --ion-background-color: #48b5be;
+  color: white;
+}
+ion-toolbar{
+ --ion-background-color: #067ca5 ;
+}
+ion-input{
+    border-radius: 5.923mm;
+    border: 3px solid white;
+ color: white;
 }
 ion-content {
-    --background: #fff url("../../assets/logo.JPG") no-repeat center center / cover  ;
-    background-size:cover;
+  --overflow: hidden;
+}
+
+.align-text-middle {
+  margin: auto;
+   
+}
+.center{
+   text-align: center;
+}
+.title{
+    text-align: center;
+    font-size: large;
+    font-family: 'Heebo'!important;
+    
+    margin: auto;
+    color: white;
+}
+
+ion-button {
+  
+  --background: white;
+ --color: #067ca5; 
+ --border-radius: 5.923mm;
+    width: 205px;
+    font-family: 'Heebo'!important;
   }
+ .radius{
+  --border-radius: 5.923mm;  
+ } 

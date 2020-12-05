@@ -1,25 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>התהליך הושלם</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-img src="./assets/success.jpg"></ion-img>
+  <div class="success">
 
-  <ion-text color="primary">
-    <h1>התור זומן בהצלחה!</h1>
-    <p>קוד אימות:{{verificationCode}}</p>
-    <p routerLink="/tabs/tab1">לחזרה לתפריט ראשי</p>
+  </div>
+  <ion-text >
+    <h1 class="title">התור זומן בהצלחה!</h1>
+    <p> קוד אימות: {{verificationCode}}</p>
+    <!--p routerLink="/tabs/tab1">לחזרה לתפריט ראשי</p-->
   </ion-text>
-
-  <ion-item>
-    <ion-text>
-      <h2>פרטי התור:</h2>
-      <p>{{turn.BusinessName}}</p>
-      <p>{{turn.EstimatedHour}}</p>
-      <p>{{turn.Address}}</p>
-      <p>{{turn.preAlert}}</p>
+  <div class="center-button">
+    <ion-button routerLink="/tabs/tab1">חזרה לתפריט הראשי</ion-button>
+  </div>
+    <ion-text class="center">
+     
+      <!--p>{{turn.BusinessName}}</p-->
+      <p class="center">{{turn.EstimatedHour}} 
+      {{turn.Address}}
+      {{turn.preAlert}}</p>
     </ion-text>
-  </ion-item>
+  
   
 </ion-content>

@@ -1,37 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      אשר את התור הרצוי
+      אשר את התור
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+ 
+  <div class="first" *ngIf="turn||turns">
+    <p class="white"> בחר זמן להתראה מראש: </p>
+    <div class="time-chooser">
+      <ion-chip>
+        <ion-icon (click)="minus()"  name="arrow-forward" color="warning"></ion-icon>
+        <ion-label class="color">{{preAlert}}</ion-label>
+        <ion-icon (click)="plus()"  name="arrow-back" color="warning"></ion-icon>
+      </ion-chip>
+      <p class="font-style">דקות</p>
+     </div>
+  </div>
+  <div class="second">
+    <div *ngIf="turns">
+      <div *ngFor="let turn of turns" class="item">
+        <ion-text>
+          <p>{{turn.BusinessName}}</p>
+          <p>{{turn.EstimatedHour}}</p>
+          <p>{{turn.Address}}</p>
+          <ion-button class="end-btn" *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
+        </ion-text>
+      </div>
+    </div>
 
-  <ion-item *ngIf="turn||turns">
-    <p> בחר זמן להתראה מראש: </p>
-    <ion-input type="number" [(ngModel)]="preAlert"></ion-input>
-    <p>דקות </p>
-  </ion-item>
-
-  <ion-list *ngIf="turns">
-    <ion-item *ngFor="let turn of turns">
+    <div *ngIf="turn" class="item">
       <ion-text>
-        <p>{{turn.BusinessName}}</p>
-        <p>{{turn.EstimatedHour}}</p>
-        <p>{{turn.Address}}</p>
-        <ion-button *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
+        <p class="text">{{turn.BusinessName}}</p>
+        <p class="important" >{{turn.EstimatedHour}}</p>
+        <p class="text">{{turn.Address}}</p>
+        <ion-button class="end-btn" *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
       </ion-text>
-    </ion-item>
-  </ion-list>
-
-  <ion-item *ngIf="turn">
-    <ion-text>
-      <p>{{turn.BusinessName}}</p>
-      <p>{{turn.EstimatedHour}}</p>
-      <p>{{turn.Address}}</p>
-      <ion-button *ngIf="preAlert" (click)="confirmTurn(turn)">אשר תור</ion-button>
-    </ion-text>
-  </ion-item>
-
+    </div>
+  </div>
 </ion-content>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { debug } from 'util';
+import { ModalController } from '@ionic/angular';
+import { ShowTurnDetialsComponent } from '../show-turn-detials/show-turn-detials.component';
 
 @Component({
   selector: 'app-show-turn',
@@ -11,10 +12,18 @@ import { debug } from 'util';
 export class ShowTurnComponent implements OnInit {
   myTurns: any[]
   apiUri = '/CustomersInTurn'
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,public modalController: ModalController) { }
 
   ngOnInit() {
     this.loadTurns();
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ShowTurnDetialsComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 
   loadTurns() {

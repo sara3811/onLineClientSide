@@ -28,4 +28,10 @@
 
 body{
     direction: rtl;
+    font-family: 'Heebo' ;
+    font-weight: lighter;
+
 }
+ion-toolbar{
+    --ion-background-color: #067ca5 !important ;
+   }

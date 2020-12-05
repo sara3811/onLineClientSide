@@ -1,0 +1,27 @@
+ion-content{
+    --ion-background-color: #067ca5 ;
+}
+ion-text{
+    color: white;   
+    font-family: 'Heebo' !important;
+    text-align: center;
+
+}
+.title{
+    color: white;
+    font-family: 'Heebo' !important;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+ion-button{
+    width: 250px;
+    margin: auto;
+    --background: #48b5be;
+    --border-radius: 5.923mm;  
+}
+.center-button{
+    text-align: center;
+}
+.center{
+    text-align: center;
+}

@@ -6,9 +6,17 @@
   </ionic-selectable>
 </ion-item>
 
-<ion-list *ngIf="selectedBusiness && selectedBusiness.Services.length>1" >
+<!--ion-list *ngIf="selectedBusiness && selectedBusiness.Services.length>1" >
     <ion-item  *ngFor="let service of selectedBusiness.Services" button (click)="buttonClick(service)">
       {{service.ServiceName}}
     </ion-item>
-</ion-list>
+</ion-list-->
 
+<ion-item *ngIf="selectedBusiness && selectedBusiness.Services.length>1">
+  <ion-label>בחר שירות</ion-label>
+  <ion-select   (ionChange)="buttonClick($event)">
+    <ion-select-option *ngFor="let service of selectedBusiness.Services" value={{service.ServiceId}} > {{service.ServiceName}}
+    </ion-select-option>
+
+  </ion-select>
+</ion-item>

@@ -1,0 +1,49 @@
+.title{
+    text-align: center;
+    font-size: larger;
+    font-family: 'Heebo'!important;
+    font-weight: bold;
+    margin: auto;
+    color: #067ca5;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.first-btn.first{
+    margin-right: 19px;
+}
+.first-btn {
+  
+    --background: #48b5be;
+   --color: white; 
+   --border-radius: 1.8012mm;
+    
+      font-family: 'Heebo'!important;
+    }
+
+  ion-radio { 
+        --color-checked: #fec80f;
+    }
+    ion-item{
+        --border-radius: 1.8012mm;
+        --background: #f1f0f0;
+        color:#48b5be ;
+       
+        margin-right: 7%;
+        margin-top: 3%;
+        margin-left:7%;
+    }
+    ion-label{
+        font-family: 'Heebo'!important;  
+        font-weight: normal;
+    }
+
+    .end-btn{
+        margin: auto;
+        --background: #067ca5 ;
+        color: white;
+        --border-radius: 5.923mm;
+       width: 170px;
+    }
+    .position{
+        margin-top: 5%;
+    }

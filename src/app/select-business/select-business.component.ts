@@ -38,12 +38,14 @@ export class SelectBusinessComponent implements OnInit {
     component: IonicSelectableComponent,
     value: any
   }) {
-    console.log('selectedBusiness:', this.selectedBusiness);
+    console.log('selected Business:', this.selectedBusiness);
     if (this.selectedBusiness.Services.length == 1) {
       this.outputService.emit(this.selectedBusiness.Services[0]);
     }
   }
-  buttonClick(selectedService: any) {
-    this.outputService.emit(selectedService);
+  buttonClick($event) {
+    
+    console.log("selectdservice",$event.target.value);
+    this.outputService.emit($event.target.value);
   }
 }

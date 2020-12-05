@@ -1,8 +1,20 @@
-
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-text>
-    <h2>מצטערים, כרגע אין משמרות פעילות</h2>
-    <p routerLink="/makeAppointment">כדי לקבוע תור מראש הקישו כאן</p>
-    <p routerLink="/tabs/tab1">לחזרה לתפריט ראשי</p>
-  </ion-text>
+  <div class="open">
+    <p class="title">אופס...</p>
+  </div>
+  <div class="content">
+    <div style="display: flex; align-items: center;justify-content: center;">
+      <ion-img class="img-size" src="../../assets/sad.svg"></ion-img>
+    </div>
+    <ion-text >
+      <p class="message">מצטערים, כרגע אין משמרות פעילות</p>
+      
+      <p routerLink="/makeAppointment">כדי לקבוע תור מראש הקישו כאן</p>
+      <ion-button class="end-btn" routerLink="/tabs/tab1">חזרה לתפריט ראשי</ion-button>
+    </ion-text>
+  </div>
 </ion-content>

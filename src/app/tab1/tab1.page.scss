@@ -1,3 +1,29 @@
-ion-content ion-toolbar {
-  --background: translucent;
+
+ion-toolbar{
+  --ion-background-color: #067ca5 ;
+ }
+ .title{
+  text-align: center;
+  font-size:x-large;
+  font-family: 'Heebo'!important;
+  margin-top: 20%;
+  font-weight: bold;
+  color: #067ca5;
 }
+
+ion-content{
+
+  --ion-background-color:#a4d5dd;
+ text-align: center;
+}
+ion-button {
+  
+  --background: #067ca5;
+ --color: white; 
+ --border-radius: 5.923mm;
+    width: 215px;
+   margin-bottom: 5%;;
+    font-family: 'Heebo'!important;
+    
+  }
+  

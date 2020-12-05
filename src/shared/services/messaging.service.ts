@@ -33,12 +33,10 @@ export class MessagingService {
     return this.angularFireMessaging.requestToken;
   }
   receiveMessage() {
-    debugger;
     this.angularFireMessaging.messages.subscribe(
       (payload) => {
         console.log("new message received. ", payload);
         this.currentMessage.next(payload);
-        debugger;
       },
       (err) => {
         debugger;

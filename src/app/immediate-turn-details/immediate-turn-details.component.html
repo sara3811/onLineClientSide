@@ -1,30 +1,28 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-title>
-            קובע תור
-        </ion-title>
+       
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <p class="title">הזמן תור</p>
     <ion-row>
         <ion-col>
-            <ion-button size="small" shape="round" (click)="loadBusinesses()">בחר עסק</ion-button>
+            <ion-button class="first-btn first"  (click)="loadBusinesses()">   בחר עסק <ion-icon slot="end" name="search"></ion-icon>   </ion-button>
         </ion-col>
         <ion-col>
-            <ion-button size="small" shape="round" (click)="loadCategory()">תעזרו לי לבחור</ion-button>
+            <ion-button class="first-btn" (click)="loadCategory()">עזרו לי לבחור</ion-button>
         </ion-col>
     </ion-row>
 
     <app-select-business [isAdvanceTurn]=0 *ngIf="isCategory==0" (outputService)="setSelectedService($event)"></app-select-business>
     <app-select-category *ngIf="isCategory==1" (outputCategory)="setSelectedCategory($event)"></app-select-category>
 
-    <ion-list>
+    <ion-list lines="none">
         <ion-radio-group #mode value="false">
             <ion-item>
                 <ion-label>אני ברכב</ion-label>
-                <ion-radio slot="start" value="true"></ion-radio>
+                <ion-radio slot="start" value="true" class="color-radio"></ion-radio>
             </ion-item>
 
             <ion-item>
@@ -35,9 +33,10 @@
     </ion-list>
 
     <!--next button אולי אפשר לעשות את זה בצורה של קוד של הוספת האזנה לאירוע לפי התנאי ולא לכתוב פעמים אותו דבר-->
-    <ion-row>
-        <ion-button *ngIf="selectedCategory" size="small" (click)="loadOptionalTurn()">הבא</ion-button>
-        <ion-button *ngIf="selectedService" size="small" (click)="loadTurnToBusiness()">הבא</ion-button>
+    <ion-row class="position">
+        <ion-button class="end-btn" *ngIf="selectedCategory" size="small" (click)="loadOptionalTurn()">הבא</ion-button>
+        <ion-button class="end-btn" *ngIf="selectedService" size="small" (click)="loadTurnToBusinessForTry()">הבא</ion-button>
+      
     </ion-row>
 
 </ion-content>

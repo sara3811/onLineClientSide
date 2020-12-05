@@ -1,0 +1,33 @@
+.img-size{
+    width: 120px;
+}
+.open{
+    text-align: center;
+}
+.content{
+    background-color: #48b5be;
+    color: white;
+    text-align: center;
+      font-family: 'Heebo';
+      height: 83%;
+      margin-bottom: 0;
+      margin-top: 5%;
+      border-bottom: 15px solid #fec80f;
+}
+.message{
+    font-weight: normal;
+}
+.title{
+    font-weight: bold;
+    font-size: x-large;
+    color: #067ca5;
+}
+.end-btn{
+    font-family: 'Heebo';
+    font-size: medium;
+    --background: #067ca5 ;
+    color: white;
+    --border-radius: 5.923mm;
+   width: 220px;
+   height: 50px;
+}

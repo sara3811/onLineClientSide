@@ -1,21 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>הרשם</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
-  <ion-item >
-    <ion-label position="floating">שם</ion-label>
-    <ion-input type="text" #userName ></ion-input>
-    
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">מספר טלפון</ion-label>
-    <ion-input type="tel" #userPhone></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button (click)="register()"> הצטרף אלינו</ion-button>
-  </ion-item>
+<ion-content   scroll-y="false" [fullscreen]="true" class="no-scroll">
+  <ion-grid >
+    <ion-row>
+      <ion-img src="./assets/logoWhite.svg"></ion-img>
+    </ion-row>
+    <ion-row >
+      <p class="title">הרשם</p>
+    </ion-row>
+    <ion-row >
+      <ion-col  class="align-text-middle" size=9 >
+        <!--ion-label position="floating">שם</ion-label-->
+        <ion-input required  type="text" #userName placeholder="שם">
+          <!--ion-icon name="person" item-right></ion-icon-->
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col class="align-text-middle" size="9" >
+      <!--ion-label position="floating">מספר טלפון</ion-label-->
+      <ion-input required  type="tel" #userPhone placeholder="מספר טלפון"></ion-input> 
+    </ion-col> 
+  </ion-row>
+   
+   <ion-row >
+     <ion-col class="center">
+      <ion-button  class="radius" (click)="register()"> הצטרף אלינו</ion-button>
+    </ion-col>
+  </ion-row> 
  
+  </ion-grid>
+
 </ion-content>
