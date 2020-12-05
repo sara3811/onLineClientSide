@@ -16,10 +16,10 @@
   </ion-segment>
 
   <!--selected day-->
-  <ion-item *ngIf="selectedDay">
+  <ion-item *ngIf="selectedDay" lines="none">
     <ion-row>
       <ion-col>{{selectedDay}}</ion-col>
-      <ion-col (click)="cancelSelectDay()">בחר יום אחר</ion-col>
+      <ion-col (click)="cancelSelectDay()" class="little">בחר יום אחר</ion-col>
     </ion-row>
   </ion-item>
 
@@ -31,21 +31,21 @@
   </ion-grid>
 
   <!--selected hour-->
-  <ion-item *ngIf="selectedHour">
+  <ion-item *ngIf="selectedHour" lines="none">
     <ion-row>
       <ion-col>{{selectedHour}}</ion-col>
-      <ion-col (click)="cancelSelectHour()">בחר שעה אחרת</ion-col>
+      <ion-col class="little" (click)="cancelSelectHour()">בחר שעה אחרת</ion-col>
     </ion-row>
   </ion-item>
 
   <!--step 4: choose pre-alert-->
-  <ion-item *ngIf="selectedHour">
+  <ion-item *ngIf="selectedHour" lines="none">
     <ion-label>בחר זמן להתראה מראש</ion-label>
     <ion-input type="number" [(ngModel)]="preAlert"></ion-input>
   </ion-item>
 
   <!--step 5: confirm turn-->
-  <ion-button *ngIf="preAlert" (click)="confirmTurn()">אשר תור</ion-button>
+  <ion-button *ngIf="preAlert" (click)="confirmTurn()" class="end-btn">אשר תור</ion-button>
 
 </ion-content>
 

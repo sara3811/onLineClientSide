@@ -78,18 +78,18 @@ export class ImmediateTurnDetailsComponent {
         }));
     }))
   }
-  loadTurnToBusinessForTry() {
-    console.log('mode:', this.mode.nativeElement.value);
+  //loadTurnToBusinessForTry() {
+  //  console.log('mode:', this.mode.nativeElement.value);
    
-      this.optionalTurn.loadOptionalTurn(this.selectedService, "0", "0", this.mode.nativeElement.value).subscribe(
-        (turn => {
-          this.optionalTurn.optionalTurn = turn;
-          this.router.navigate(['/confirmTurn']);
-        }));
+  //    this.optionalTurn.loadOptionalTurn(this.selectedService, "0", "0", this.mode.nativeElement.value).subscribe(
+   //     (turn => {
+   //       this.optionalTurn.optionalTurn = turn;
+    //      this.router.navigate(['/confirmTurn']);
+   //    }));
   
  
    
 
-  }
+  //}
 
 }

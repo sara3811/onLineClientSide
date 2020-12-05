@@ -1,0 +1,38 @@
+ion-select {
+    font-family: 'Heebo' !important;
+    color: #48b5be;
+}
+ion-select-option{
+    font-family: 'Heebo' !important; 
+    color: #48b5be;  
+}
+ion-label{
+    font-family: 'Heebo' !important;
+    --color: #48b5be;
+}
+
+ion-select::part(text) {
+    color: #48b5be;
+    font-family: 'Heebo'
+  }
+  
+  /* Set the icon color and opacity */
+  ion-select::part(icon) {
+    color: #fec80f;
+   
+  }
+  ion-item{
+    --border-radius: 1.8012mm;
+    --background: #f1f0f0;
+    color:#48b5be ;  
+    margin-right: 7%;
+    margin-top: 2%;
+    margin-left:7%;
+  }
+  .ionic-selectable-item-is-selected,.ionic-selectable-item-is-disabled
+ {
+   
+    color:#067ca5;
+    font-family: 'Heebo';
+  
+ }

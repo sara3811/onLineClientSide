@@ -1,4 +1,4 @@
-<ion-item *ngIf="categories">
+<ion-item lines="none" *ngIf="categories">
   <ion-label>בחר קטגוריה</ion-label>
   <ionic-selectable [(ngModel)]="selectedCategory" [items]="categories" itemValueField="CategoryId"
       itemTextField= "CategoryName" [canSearch]="true" (onChange)="dataChange($event)">
