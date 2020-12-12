@@ -1,3 +1,29 @@
-ion-content ion-toolbar {
-  --background: translucent;
+ion-toolbar{
+  --ion-background-color: #067ca5 ;
+ }
+ .title{
+  text-align: center;
+  font-size:x-large;
+  font-family: 'Heebo'!important;
+  margin-top: 20%;
+  font-weight: bold;
+  color: #067ca5;
+}
+.warpper{
+  background-color: #48b5be;
+  width: 100%;
+}
+ion-content{
+
+  --ion-background-color:#a4d5dd;
+ text-align: center;
+ font-family: 'Heebo' !important;
+}
+ion-img{
+  width: 55%;
+  margin: auto;
+}
+ion-item{
+  font-family: 'Heebo' !important;
+  --color:#067ca5 ;
 }

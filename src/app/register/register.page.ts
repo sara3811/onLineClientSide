@@ -43,12 +43,12 @@ export class RegisterPage implements OnInit {
       console.log('Unable to get permission to notify.');
       
     }
-    this.notifactionToken = "0"
+    //this.notifactionToken = "0"
     let name = this.userName.nativeElement.value;
     let phone = this.userPhone.nativeElement.value;
     let token = this.notifactionToken;
 
-    console.log('name:', name, '  phone:', phone);
+    console.log('name:', name, '  phone:', phone,'token ',token);
     this.http.get(environment.apiUrl + this.apiUri, { params: { name, phone, token } })
       .subscribe((token: string) => {
 

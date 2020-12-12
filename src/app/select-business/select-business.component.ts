@@ -40,7 +40,7 @@ export class SelectBusinessComponent implements OnInit {
   }) {
     console.log('selected Business:', this.selectedBusiness);
     if (this.selectedBusiness.Services.length == 1) {
-      this.outputService.emit(this.selectedBusiness.Services[0]);
+      this.outputService.emit(this.selectedBusiness.Services[0].ServiceId);
     }
   }
   buttonClick($event) {

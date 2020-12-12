@@ -12,10 +12,12 @@ import { ShowTurnDetialsComponent } from '../show-turn-detials/show-turn-detials
 export class ShowTurnComponent implements OnInit {
   myTurns: any[]
   apiUri = '/CustomersInTurn'
-  constructor(private http: HttpClient,public modalController: ModalController) { }
+  constructor(private http: HttpClient,public modalController: ModalController) { 
+    this.loadTurns();
+
+  }
 
   ngOnInit() {
-    this.loadTurns();
   }
 
   async presentModal() {
