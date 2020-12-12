@@ -33,3 +33,13 @@ ion-item{
     padding-right: 0 !important;
     color: #067ca5;
 }
+.detials{
+    font-family: 'Heebo';
+    --color:#067ca5;
+}
+.onlyText{
+    font-family: 'Heebo'!important;
+    font-size: smaller !important;
+    --color:#067ca5;
+    border: none;
+}

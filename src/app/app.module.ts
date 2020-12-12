@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from '../shared/services/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,7 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
-
+DatePipe,
     StatusBar,
     SplashScreen,
     HttpClientModule,

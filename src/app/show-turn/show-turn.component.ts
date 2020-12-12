@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { ShowTurnDetialsComponent } from '../show-turn-detials/show-turn-detials.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-show-turn',
@@ -12,22 +13,45 @@ import { ShowTurnDetialsComponent } from '../show-turn-detials/show-turn-detials
 export class ShowTurnComponent implements OnInit {
   myTurns: any[]
   apiUri = '/CustomersInTurn'
-  constructor(private http: HttpClient,public modalController: ModalController) { 
+  constructor(private http: HttpClient,public actionSheetController: ActionSheetController,private datePipe: DatePipe) {
     this.loadTurns();
 
   }
 
   ngOnInit() {
   }
-
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: ShowTurnDetialsComponent,
-      cssClass: 'my-custom-class'
+  async presentActionSheet(turn) {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'פרטי התור-',
+      
+      cssClass: 'detials',
+      
+      buttons: [{
+       
+        text: turn.BusinessName+'    '+turn.Address,
+        cssClass: 'onlyText',
+        
+      },
+      {
+        text: this.datePipe.transform(turn.FullTime, 'MMM d, y, h:mm:ss a'),
+        cssClass: 'onlyText', 
+      },
+      {
+        text: 'ראיתי',
+        icon: 'close',
+        role: 'cancel',
+      
+        handler: () => {
+          console.log('Cancel clicked');
+        
+      }}]
     });
-    return await modal.present();
+    await actionSheet.present();
   }
-
+  showDetials(turn) {
+   
+    this.presentActionSheet(turn);
+  }
   loadTurns() {
     this.http.get(environment.apiUrl + this.apiUri).subscribe((turns: any[]) => {
       this.myTurns = turns;
@@ -37,11 +61,11 @@ export class ShowTurnComponent implements OnInit {
 
   cancelTurn(turnId: any) {
     console.log(turnId);
-    this.http.delete(environment.apiUrl + this.apiUri,{ params: { turnId: turnId} })
-    .subscribe((state => {
-      this.loadTurns();
-      console.log("state:" , state);
-    }))
+    this.http.delete(environment.apiUrl + this.apiUri, { params: { turnId: turnId } })
+      .subscribe((state => {
+        this.loadTurns();
+        console.log("state:", state);
+      }))
   }
 
 }
