@@ -9,7 +9,7 @@
   <app-select-business [isAdvanceTurn]=1 (outputService)="SetSelectedService($event)"></app-select-business>
 
   <!--step 2: choose date-->
-  <ion-segment *ngIf="selectedService&&days&&!selectedDay" (ionChange)="segmentChanged($event)">
+  <ion-segment scrollable="true" *ngIf="selectedService&&days&&!selectedDay" (ionChange)="segmentChanged($event)">
     <ion-segment-button *ngFor="let day of days" value={{day}}>
       <ion-label>{{day|date:'shortDate'}}</ion-label>
     </ion-segment-button>
