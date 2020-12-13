@@ -54,8 +54,8 @@ export class ConfirmTurnComponent implements OnInit {
         this.router.navigate(['/process-complete']);
 
       },
-      error=>{console.log(error.message);
-      this.presentAlertConfirm(error.message);}
+      error=>{console.log(error.error.Message);
+      this.presentAlertConfirm(error.error.Message);}
       )
   }
 
@@ -63,17 +63,17 @@ export class ConfirmTurnComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'שים לב!',
-      message: 'Message <strong>text</strong>!!!',
+      message: '<strong>'+text+'</strong>!!!',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'בטל',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Okay',
+          text: 'אשר',
           handler: () => {
             console.log('Confirm Okay');
           }
