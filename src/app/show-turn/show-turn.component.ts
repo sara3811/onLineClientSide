@@ -13,7 +13,8 @@ import { DatePipe } from '@angular/common';
 export class ShowTurnComponent implements OnInit {
   myTurns: any[]
   apiUri = '/CustomersInTurn'
-  constructor(private http: HttpClient,public actionSheetController: ActionSheetController,private datePipe: DatePipe) {
+  constructor(private http: HttpClient,public actionSheetController: ActionSheetController,private datePipe: DatePipe,
+    public modalController: ModalController) {
     this.loadTurns();
 
   }
@@ -50,8 +51,22 @@ export class ShowTurnComponent implements OnInit {
   }
   showDetials(turn) {
    
-    this.presentActionSheet(turn);
+   // this.presentActionSheet(turn);
+   this.presentModal(turn);
   }
+
+  async presentModal(turn) {
+    const modal = await this.modalController.create({
+      component: ShowTurnDetialsComponent,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'turn': turn,
+      
+      }
+    });
+    return await modal.present();
+  }
+
   loadTurns() {
     this.http.get(environment.apiUrl + this.apiUri).subscribe((turns: any[]) => {
       this.myTurns = turns;

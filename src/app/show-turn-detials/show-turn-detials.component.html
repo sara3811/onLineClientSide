@@ -1,3 +1,15 @@
-<p>
-  show-turn-detials works!
-</p>
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="title">התור שלך-</div>
+
+  <div class="detial">בעסק:  {{turn.BusinessName}}</div>
+  <div class="detial">בכתובת: {{turn.Address}}</div>
+  <!--div class="detial">בשעה: {{turn.EstimatedHour| date:'shortTime'}}</div-->
+  <!--div class="detial">בתאריך: {{turn.FullTime| date:'fullDate'}}</div-->
+  <div class="detial">בשעה: {{turn.EstimatedHour}}</div>
+  <div class="detial">בתאריך: {{text}}</div>
+</ion-content>
+<button (click)="dismiss()">close</button>
