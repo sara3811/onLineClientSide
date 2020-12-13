@@ -19,14 +19,14 @@ export class ConfirmTurnComponent implements OnInit {
   turn: any;
   preAlert: number = 2;
 
-  constructor(private router: Router, private optionalTurns: OptionalTurns, private http: HttpClient, private optionalTurn: OptionalTurn,public alertController: AlertController) { 
+  constructor(private router: Router, private optionalTurns: OptionalTurns, private http: HttpClient, private optionalTurn: OptionalTurn, public alertController: AlertController) {
     if (this.optionalTurns.optionalTurns && this.optionalTurns.optionalTurns.length == 0 ||
       this.optionalTurn.optionalTurn && this.optionalTurn.optionalTurn.EstimatedHour == "00:00:00")
-        this.router.navigate(['/no-turns'])
+      this.router.navigate(['/no-turns'])
   }
 
   ngOnInit() {
-    
+
     this.turn = this.optionalTurn.optionalTurn;
     this.turns = this.optionalTurns.optionalTurns;
     console.log("turns", this.turns);
@@ -43,27 +43,37 @@ export class ConfirmTurnComponent implements OnInit {
   }
 
   confirmTurn(turn: any) {
-   
+
     console.log(this.preAlert);
     console.log("turn:" + turn);
     this.http.put(environment.apiUrl + this.apiUri, { TurnId: turn.TurnId, PreAlert: this.preAlert })
-      .subscribe(verificationCode => {
-        console.log(verificationCode);
-        this.optionalTurn.verificationCode = verificationCode;
+      .subscribe((confirmResponse: any) => {
+        console.log(confirmResponse.verificationCode);
+        this.optionalTurn.verificationCode = confirmResponse.verificationCode;
         this.optionalTurn.selectedTurn = turn;
-        this.router.navigate(['/process-complete']);
+        if (confirmResponse.isConflict == true) {
+          this.presentAlertConfirm("יש לך כבר תור בשעה זו", confirmResponse.turnId)
+        }
+        else
+          this.router.navigate(['/process-complete']);
 
-      },
-      error=>{console.log(error.error.Message);
-      this.presentAlertConfirm(error.error.Message);}
-      )
+      })
   }
 
-  async presentAlertConfirm(text) {
+  cancelTurn(turnId: any) {
+    console.log(turnId);
+    this.http.delete(environment.apiUrl + '/CustomersInTurn', { params: { turnId: turnId } })
+      .subscribe((state => {
+        console.log("state:", state);
+        this.router.navigate(['/tabs/tab1']);
+      }))
+  }
+
+  async presentAlertConfirm(text, turnId) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'שים לב!',
-      message: '<strong>'+text+'</strong>!!!',
+      message: '<strong>' + text + '</strong>!!!',
       buttons: [
         {
           text: 'בטל',
@@ -71,11 +81,13 @@ export class ConfirmTurnComponent implements OnInit {
           cssClass: 'secondary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
+            this.cancelTurn(turnId);
           }
         }, {
           text: 'אשר',
           handler: () => {
             console.log('Confirm Okay');
+            this.router.navigate(['/process-complete']);
           }
         }
       ]
