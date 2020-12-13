@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookAppointment } from '../bookAppointment.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-make-appointment',
@@ -16,7 +18,7 @@ export class MakeAppointmentPage implements OnInit {
   selectedHour: any;
   preAlert: number;
 
-  constructor(private appointmentService: BookAppointment,private router:Router) { }
+  constructor(private appointmentService: BookAppointment,private router:Router, private alertController:AlertController) { }
 
   ngOnInit() { }
 
@@ -29,11 +31,16 @@ export class MakeAppointmentPage implements OnInit {
   // http://localhost:52764/appointment/optionalHours?serviceId=1&day=3
  
   loadDays() {
-    this.appointmentService.loadDays(this.selectedService).subscribe((days => {
+    this.appointmentService.loadDays(this.selectedService).subscribe(days => {
       this.days = days
       console.log('days:',days);
-    }));
+    },
+    error=>{console.log(error.error.Message);
+      this.presentAlert(error.error.Message);
+    })
   }
+
+
  
   setHour(hour) {
     this.selectedHour = hour;
@@ -71,6 +78,15 @@ export class MakeAppointmentPage implements OnInit {
 
   cancelSelectDay(){
     this.selectedDay=null;
+  }
+
+  async presentAlert(text) {
+    const alert = await this.alertController.create({
+      header: 'שים לב',
+      message: '<strong>לא ניתן להזמין תורים מראש בשירות זה. בחר שירות אחר<\strong>',
+      buttons: ['X']
+    });
+    await alert.present();
   }
   
 }
